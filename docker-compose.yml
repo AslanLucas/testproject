@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: bestguide
+      POSTGRES_PASSWORD: bestguide
+      POSTGRES_DB: bestguide
+    ports:
+      - "5432:5432"
+
+  rabbitmq:
+    image: rabbitmq:4-management
+    ports:
+      - "5672:5672"   # AMQP
+      - "15672:15672" # Management-UI (guest/guest)
