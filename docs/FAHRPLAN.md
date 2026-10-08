@@ -4,7 +4,7 @@ Sortiert nach der Priorität "bis Montag". Die Aufgaben gibt es einzeln.
 
 | # | Thema | Status |
 |---|-------|--------|
-| 0 | Umgebung: .NET 9 SDK, Docker, Playwright-Browser | ⬜ |
+| 0 | Umgebung: .NET 9 SDK, Docker, Playwright-Browser | ✅ |
 | 1 | EF Core + PostgreSQL: DbContext, Migration, erster CRUD-Endpunkt | ⬜ |
 | 2 | Integrationstest mit WebApplicationFactory + Testcontainers | ⬜ |
 | 3 | Validierung (FluentValidation) + ProblemDetails | ⬜ |
