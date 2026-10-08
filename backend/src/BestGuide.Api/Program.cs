@@ -1,23 +1,19 @@
+using BestGuide.Api.Data;
+using BestGuide.Api.Features.Guides;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
 
 builder.Services.AddOpenApi();
 
-// TODO: DbContext registrieren (Npgsql, ConnectionString "Default")
-// TODO: Einheitliche Fehlerbehandlung (ProblemDetails)
-// TODO: Tenant-Auflösung (MultiTenancy/)
-// TODO: RabbitMQ / Messaging (Messaging/)
-
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
-
+app.MapOpenApi();          // -> /openapi/v1.json
 app.MapGet("/health", () => Results.Ok(new { status = "ok" }));
-
-// TODO: Guide-Endpunkte mappen (Features/Guides/)
-
+app.MapGuideEndpoints();
 app.Run();
 
 // Wird von WebApplicationFactory<Program> in den Integrationstests benötigt.
